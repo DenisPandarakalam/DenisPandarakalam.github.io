@@ -16,11 +16,15 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -2;
 
   font-family: Helvetica, Helvetica Neue, Arial, sans-serif;	
   color: white;
   text-align: center;
-
+  
+  
 }
 
 a {
@@ -29,14 +33,16 @@ a {
 
 .gradient {
     position: fixed;
-    z-index: -999;
+    z-index: -1;
     height: 100%;
     width: 100%;
 
     background: linear-gradient(45deg, #ffffff10, #dc2002,#ffffff10);
-	background-size: 400% 400%;
-	animation: gradient 15s ease alternate infinite;
-	height: 100vh;
+    background-size: 400% 400%;
+    animation: gradient 20s ease alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    height: 100vh;
 }
 
 @keyframes gradient {
