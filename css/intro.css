@@ -1,0 +1,45 @@
+.intro {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+
+.introtext {
+    position: absolute;  
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+
+    transition: .30s all;
+    -ms-transition: .30s all;
+    -webkit-transition: .30s all;
+    -moz-transition: .30s all;
+    -o-transition: .30s all;
+}
+
+.introtext:hover {
+    filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.5));
+    font-size: 18px;
+}
+
+.intrologo {
+    filter: invert(1);
+    position: absolute;
+    height: 164px;
+    width: 164px;
+    top: -1.8em;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
