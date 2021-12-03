@@ -5,8 +5,12 @@
     top: 0;
     width: 100%;
     height: 100vh;
-    background-color: #161616;
-    transition: 1s;
+
+    background: linear-gradient(45deg, #000000ff, rgb(68, 68, 68),#000000ff);
+    background-size: 200% 200%;
+    animation: gradient 30s ease alternate infinite;
+
+    transition: 2s;
 }
 
 .introtext {

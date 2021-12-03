@@ -38,7 +38,6 @@ a, img {
   background: linear-gradient(45deg, #ffffff10, #dc2002,#ffffff10);
   background-size: 400% 400%;
   animation: gradient 30s ease alternate infinite;
-  
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   height: 100vh;
@@ -85,7 +84,6 @@ header > * {
   background-image: url('../images/DPLogo.svg');
   height: 75px;
   width: 75px;
-  opacity: 0;
 
   filter: invert(1) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
 
@@ -112,6 +110,7 @@ header > * {
 
 .name {
   width: 11ch;
+  animation: typing 2s steps(11), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   user-select: none;
@@ -133,6 +132,25 @@ header > * {
       border-color: transparent
     }
   }
+
+nav {
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;;
+  color:#dc2002;
+
+  filter: saturate(150%) drop-shadow(0 2px 1px #161616);
+}
+
+nav > a {
+
+  transition: 0.5s all;
+}
+
+nav > a:hover, nav > a.active {
+
+  color: white;
+}
 
 main {
 

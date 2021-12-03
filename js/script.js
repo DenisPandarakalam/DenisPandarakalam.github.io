@@ -11,25 +11,32 @@ $("#logo").mouseleave(() => {
     audio.pause();
 });
 
-$(".intro").click(() => {
 
-    $(".intro").remove();
-    console.log("CLICK");
-    
-    $(".name").css({
-        "animation": "typing 2s steps(11), blink .5s step-end infinite alternate",
-        "animation-delay": "0.5s",
-        "animation-fill-mode": "backwards"
+console.log($("nav > a"));
+
+$(document).ready(() => {
+
+    $("nav > a").click((e) => {
+
+        console.log($(e.target));
+        $("nav > a").removeClass("active");
+        $(e.target).addClass("active");
     });
-
-    $('.intrologo').attr('src', "images/DPandaLogoIntromation1.gif"+"?"+new Date().getTime());
-    setTimeout(() => {
-        $('.logo').css("opacity", 1);
-        
-        setTimeout(() => {
-
-            $('.intrologo').remove();
-        }, 300);
-    }, 4000);
-
 });
+
+
+// $(".intro").click(() => {
+    
+//     $(".name").css({
+//         "animation": ""
+//     });
+
+//     $(".intro").remove();
+//     console.log("CLICK");
+    
+//     $(".name").css({
+//         "animation": "typing 2s steps(11), blink .5s step-end infinite alternate",
+//         "animation-delay": "0.5s",
+//         "animation-fill-mode": "backwards"
+//     });
+// });

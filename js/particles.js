@@ -33,7 +33,8 @@ function init() {
     var PI2 = Math.PI * 2;
     var material = new THREE.ParticleCanvasMaterial({
 
-        color: new THREE.Color().setRGB(1, .35, .35),
+        color: new THREE.Color(0xdc2002),
+        opacity: 0.6,
         program: function(context) {
 
             context.beginPath();
@@ -128,7 +129,7 @@ function animate() {
  
 function render() {
 
-    camera.position.x += (mouseX - camera.position.x) * .05;
+    camera.position.x += (mouseX - camera.position.x) * .02;
     camera.lookAt(scene.position);
 
     var i = 0;
