@@ -16,6 +16,11 @@ console.log($("nav > a"));
 
 $(document).ready(() => {
 
+    var url= window.location.href;
+    var id = url.substring(url.lastIndexOf('#') + 1);
+    console.log(id);
+    $("nav > a[href=\"#"+id+"\"]").addClass("active");
+
     $("nav > a").click((e) => {
 
         console.log($(e.target));

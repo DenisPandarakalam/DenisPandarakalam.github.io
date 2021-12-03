@@ -11,6 +11,7 @@
 
 html {
     background: black;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -137,13 +138,16 @@ nav {
 
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;;
-  color:#dc2002;
+  color:white;
+  user-select: none;
 
   filter: saturate(150%) drop-shadow(0 2px 1px #161616);
 }
 
 nav > a {
 
+  color: red;
+  cursor: pointer;
   transition: 0.5s all;
 }
 
