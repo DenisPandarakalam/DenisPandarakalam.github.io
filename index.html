@@ -8,15 +8,18 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
-
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/intro.css">
+
+    <link rel="preload" href="/fonts/cour.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/courbd.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/courbi.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/couri.ttf" as="font" crossorigin="anonymous" />
+
     <title>Denis Panda</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="js/three.js"></script>
     <script src="js/preload.js"></script>
  </head>
@@ -50,14 +53,52 @@
   </header>
 
   <nav>
-    <a href="#experience">experience</a> |
-    <a href="#education">education</a> |
-    <a href="#projects">projects</a> |
-    <a href="#tools">tools</a> |
-    <a href="static/DenisPandaResume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
+    <div class="wrapper">
+      <a href="#projects">projects</a> .
+      <a href="#experience">experience</a> .
+      <a href="#education">education</a> .
+      <a href="#tools">tools</a> .
+      <a href="static/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
+    </div>
   </nav>
 
   <main>
+
+
+    <section id="projects">
+      projects
+    </section>
+
+
+    <section id="experience">
+      experience
+    </section>
+
+
+    <section id="education">
+      education
+    </section>
+
+
+    <section id="tools">
+      tools
+
+      <ul>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+        <li>sampletext</li>
+      </ul>
+    </section>
+
+
+    <script>
+      $('section').hide();
+    </script>
   </main>
 
   <script src="js/script.js"></script>

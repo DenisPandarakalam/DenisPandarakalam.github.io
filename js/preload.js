@@ -1,5 +1,7 @@
 console.log("preload.js")
 
+
+
 function preloadImages(array) {
     if (!preloadImages.list) {
         preloadImages.list = [];

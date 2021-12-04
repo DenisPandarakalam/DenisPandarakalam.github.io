@@ -21,7 +21,7 @@ body {
   width: 100vw;
   z-index: -2;
 
-  font-family: Helvetica, Helvetica Neue, Arial, sans-serif;	
+  font-family: 'Courier New', Courier, monospace;
   color: white;
   text-align: center;
 }
@@ -116,7 +116,6 @@ header > * {
   overflow: hidden;
   user-select: none;
   border-right: 3px solid;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
   font-weight: bolder;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
@@ -135,22 +134,49 @@ header > * {
 }
 
 nav {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;;
+
+  font-size: 14px;
   color:white;
   user-select: none;
   text-shadow: 0 2px 2px #161616;
 
-  filter: saturate(150%) ;
+  filter: saturate(150%);
+
+  margin-bottom: 2em;
 }
 
-nav > a {
+nav > .wrapper > a {
+
   color: rgb(201, 0, 0);
   cursor: pointer;
   transition: 0.5s all;
+  max-height: 14px;
+  width: min-content;
 }
 
-nav > a:hover, nav > a.active {
+@media only screen and (orientation: portrait), (max-width: 768px) {
+
+  nav > .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav > .wrapper > a {
+
+    padding-bottom: 2px;
+  }
+
+  nav > .wrapper > :not(a:last-child)::after {
+
+    color: white;
+    content: '';
+  }
+
+}
+
+nav > .wrapper > a:hover, nav > div > a.active {
   color: white;
   font-size: 15px;;
   text-shadow: 0 1px 1px #161616;
@@ -158,4 +184,10 @@ nav > a:hover, nav > a.active {
 
 main {
 
+}
+
+section {
+  position: absolute;
+  left: 0; 
+  right: 0; 
 }
