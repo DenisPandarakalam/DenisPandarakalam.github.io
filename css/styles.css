@@ -123,37 +123,37 @@ header > * {
 }
 
 @keyframes typing {
-    from {
-      width: 0
-    }
+  from {
+    width: 0
   }
+}
       
-  @keyframes blink {
-    50% {
-      border-color: transparent
-    }
+@keyframes blink {
+  50% {
+    border-color: transparent
   }
+}
 
 nav {
-
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;;
   color:white;
   user-select: none;
+  text-shadow: 0 2px 2px #161616;
 
-  filter: saturate(150%) drop-shadow(0 2px 1px #161616);
+  filter: saturate(150%) ;
 }
 
 nav > a {
-
-  color: red;
+  color: rgb(201, 0, 0);
   cursor: pointer;
   transition: 0.5s all;
 }
 
 nav > a:hover, nav > a.active {
-
   color: white;
+  font-size: 15px;;
+  text-shadow: 0 1px 1px #161616;
 }
 
 main {

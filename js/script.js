@@ -1,31 +1,30 @@
+console.log("script.js")
+
 var audio = document.getElementById("audio1");
 var logo  = document.getElementById("logo");
 
-$("#logo").mouseenter(() => {
-    audio.currentTime = 0;
-    audio.volume = 0.2;
-    audio.play();
-});
-
-$("#logo").mouseleave(() => {
-    audio.pause();
-});
-
-
-console.log($("nav > a"));
-
 $(document).ready(() => {
 
-    var url= window.location.href;
-    var id = url.substring(url.lastIndexOf('#') + 1);
-    console.log(id);
-    $("nav > a[href=\"#"+id+"\"]").addClass("active");
+    $("#logo").mouseenter(() => {
+        audio.currentTime = 0;
+        audio.volume = 0.2;
+        audio.play();
+    });
+    
+    $("#logo").mouseleave(() => {
+        audio.pause();
+    });
 
-    $("nav > a").click((e) => {
+    var hash = window.location.hash;
+    hash = hash.substring(1);
+    $('nav > a[href$='+hash+']').addClass("active");
 
-        console.log($(e.target));
-        $("nav > a").removeClass("active");
-        $(e.target).addClass("active");
+    $(window).on('hashchange', function() {
+        $('.active').removeClass('active');
+        var hash = window.location.hash;
+        hash = hash.substring(1);
+        console.log(hash);
+        $('nav > a[href$='+hash+']').addClass("active");
     });
 });
 
