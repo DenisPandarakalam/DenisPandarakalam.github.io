@@ -119,6 +119,7 @@ header > * {
   font-size: 1.5rem;
   font-weight: bolder;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
 }
 
 @keyframes typing {
@@ -148,10 +149,10 @@ nav {
 nav > .wrapper > a {
 
   color: rgb(201, 0, 0);
-  cursor: pointer;
   transition: 0.5s all;
   max-height: 14px;
   width: min-content;
+  cursor: pointer;
 }
 
 @media only screen and (orientation: portrait), (max-width: 768px) {
@@ -187,7 +188,26 @@ main {
 }
 
 section {
-  position: absolute;
+  position: relative;
   left: 0; 
   right: 0; 
+
+  margin-bottom: 0;
+
+  opacity: 0;
+  max-height: 0;
+  transition: 1s all;
+}
+
+section.active {
+
+  margin-bottom: 2em;
+
+  opacity: 1;
+  transition: 1s all;
+}
+
+#tools > ul {
+    text-align: center;
+    list-style-position: inside;
 }

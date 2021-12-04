@@ -3,7 +3,7 @@ console.log('script.js')
 $(document).ready(() => {
 
     /** LOGO SOUND */
-    $('#logo').on('mouseenter touchstart', function(e1) {
+    $('#logo').on('mouseenter', function(e1) {
 
         var audio = document.getElementById('audio1');
         audio.currentTime = 0;
@@ -21,7 +21,7 @@ $(document).ready(() => {
         
         audio.play();
 
-    }).on('mouseleave touchend', function() {
+    }).on('mouseleave', function() {
 
         $('#logo').off('mousedown.volume');
         
@@ -32,37 +32,29 @@ $(document).ready(() => {
 
     /** HASH */
     var hash = window.location.hash.substring(1);
+
+    if(!hash || hash=='home') {
+        hash = 'home';
+        $('section').addClass('active');
+    }
+
     $('nav > div > a[href$='+hash+']').addClass('active');
-    $('#'+hash).fadeIn(500);
+    $('#'+hash).addClass('active');
 
     $(window).on('hashchange', function() {
 
         oldHash = hash;
         hash = window.location.hash.substring(1);
 
+        // Updates navbar
         $('nav > div > a[href$='+oldHash+']').removeClass('active');
         $('nav > div > a[href$='+hash+']').addClass('active');
 
-        $('section').fadeOut(250).promise().done(function() {
-            
-            $('#'+hash).fadeIn(250);
-        });
+        // Updates page
+        if(hash=='home') $('section').addClass('active');
+        else {
+            $('section:not(#'+hash+')').removeClass('active');
+            $('#'+hash).addClass('active');
+        }
     });
 });
-
-
-// $('.intro').click(() => {
-    
-//     $('.name').css({
-//         'animation': ''
-//     });
-
-//     $('.intro').remove();
-//     console.log('CLICK');
-    
-//     $('.name').css({
-//         'animation': 'typing 2s steps(11), blink .5s step-end infinite alternate',
-//         'animation-delay': '0.5s',
-//         'animation-fill-mode': 'backwards'
-//     });
-// });
