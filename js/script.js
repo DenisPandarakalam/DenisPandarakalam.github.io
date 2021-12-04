@@ -3,21 +3,25 @@ console.log('script.js')
 $(document).ready(() => {
 
     /** LOGO SOUND */
-    $('#logo').hover(function(e) {
+    $('#logo').on('mouseenter touchstart', function(e1) {
 
         var audio = document.getElementById('audio1');
         audio.currentTime = 0;
-        audio.volume = 0.5;
+        
+        var rect = e1.target.getBoundingClientRect()
+        var y = e1.clientY - rect.top;
+        audio.volume = 0.5*(rect.height-y)/(rect.height);
 
-        $('#logo').on('mousedown.volume', (e) => {
+        $('#logo').on('mousedown.volume', (e2) => {
 
-            var rect = e.target.getBoundingClientRect()
-            var y = e.clientY - rect.top;
+            rect = e2.target.getBoundingClientRect()
+            y = e2.clientY - rect.top;
             audio.volume = 0.5*(rect.height-y)/(rect.height);
         });
+        
         audio.play();
 
-    }, function() {
+    }).on('mouseleave touchend', function() {
 
         $('#logo').off('mousedown.volume');
         
