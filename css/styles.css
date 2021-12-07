@@ -17,9 +17,9 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-  height: 100vh;
+  height: 500vh;
   width: 100vw;
-  z-index: -2;
+  z-index: -3;
 
   font-family: 'Courier New', Courier, monospace;
   color: white;
@@ -61,6 +61,14 @@ a, img {
   z-index: -1;
 }
 
+#mouseinfo {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  text-align: right;
+  white-space:pre-wrap;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -72,17 +80,11 @@ header {
 }
 
 header > * {
-  
   margin-top: 1em;
 }
 
 .logowrapper {
-
-}
-
-.logo {
-
-  background-image: url('../images/DPLogo.svg');
+  display: grid;
   height: 75px;
   width: 75px;
 
@@ -95,11 +97,34 @@ header > * {
   -o-transition: .30s all;
 }
 
-.logo:hover {
-
+.logowrapper:hover {
   filter: invert(1) drop-shadow(0 2px 3px rgba(20, 20, 20, 0.2));
   transform: scale(1.1);
   text-shadow: 0 0 20px #fff;
+}
+
+.logo {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.logo.main {
+  background-image: url('../images/DPLogo.svg');
+}
+
+.logo.animation {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.logo.animation > video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 125% !important;
 }
 
 .namewrapper {
@@ -146,7 +171,7 @@ nav {
   margin-bottom: 2em;
 }
 
-nav > .wrapper > a {
+nav a {
 
   color: rgb(201, 0, 0);
   transition: 0.5s all;
@@ -155,21 +180,21 @@ nav > .wrapper > a {
   cursor: pointer;
 }
 
-@media only screen and (orientation: portrait), (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
-  nav > .wrapper {
+  nav .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  nav > .wrapper > a {
+  nav a {
 
     padding-bottom: 2px;
   }
 
-  nav > .wrapper > :not(a:last-child)::after {
+  nav :not(a:last-child)::after {
 
     color: white;
     content: '';
@@ -177,37 +202,54 @@ nav > .wrapper > a {
 
 }
 
-nav > .wrapper > a:hover, nav > div > a.active {
+nav a:hover, nav a.active {
   color: white;
   font-size: 15px;;
   text-shadow: 0 1px 1px #161616;
 }
 
 main {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 section {
-  position: relative;
-  left: 0; 
-  right: 0; 
-
-  margin-bottom: 0;
 
   opacity: 0;
-  max-height: 0;
-  transition: 1s all;
+  transform: translateY(1vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
 }
 
 section.active {
 
-  margin-bottom: 2em;
-
   opacity: 1;
-  transition: 1s all;
+  transform: none;
+  visibility: visible;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+}
+
+#home {
+  
+  z-index: 4;
+}
+
+#projects {
+
+  z-index: 3;
+}
+
+#experience {
+
+  z-index: 2;
 }
 
 #tools > ul {
-    text-align: center;
-    list-style-position: inside;
+
+  z-index: 1;
+
+  text-align: center;
+  list-style-position: inside;
 }
