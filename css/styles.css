@@ -18,12 +18,16 @@ body {
 	margin: 0;
 	padding: 0;
   height: 500vh;
-  width: 100vw;
+  width: 100%;
   z-index: -3;
 
   font-family: 'Courier New', Courier, monospace;
   color: white;
   text-align: center;
+}
+
+body * {
+  user-select: none;
 }
 
 a, img {
@@ -32,12 +36,10 @@ a, img {
 
 .gradient {
   position: fixed;
-  z-index: -2;
+  z-index: -998;
   height: 100%;
   width: 100%;
 
-  background: linear-gradient(45deg, #ffffff10, #dc2002,#ffffff10);
-  background-size: 400% 400%;
   animation: gradient 30s ease alternate infinite;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -56,17 +58,50 @@ a, img {
 	}
 }
 
-.particles {
-  position: fixed;
-  z-index: -1;
+.gradient.red {
+
+  background: linear-gradient(45deg, #ffffff10, #dc2002,#ffffff10);
+  background-size: 400% 400%;
 }
 
-#mouseinfo {
-  position: absolute;
-  top: 0;
-  right: 1em;
+.gradient.black {
+  
+  background: linear-gradient(45deg, #00000001, #000000aa,#00000001);
+  background-size: 400% 400%;
+}
+
+.gradient.pink {
+  
+  background: linear-gradient(45deg, #00000001, #fc4db3aa,#00000001);
+  background-size: 400% 400%;
+}
+
+.particles {
+  position: fixed;
+  z-index: -999;
+}
+
+#info {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+#info > * {
+  
   text-align: right;
   white-space:pre-wrap;
+}
+
+#timeinfo {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  #info {
+    display: none;
+  }
 }
 
 header {
@@ -80,7 +115,7 @@ header {
 }
 
 header > * {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .logowrapper {
@@ -98,33 +133,24 @@ header > * {
 }
 
 .logowrapper:hover {
-  filter: invert(1) drop-shadow(0 2px 3px rgba(20, 20, 20, 0.2));
+  filter: invert(1) drop-shadow(0 2px 1px rgba(20, 20, 20, 0.1));
   transform: scale(1.1);
-  text-shadow: 0 0 20px #fff;
 }
 
-.logo {
+#logoanim {
   grid-column-start: 1;
   grid-row-start: 1;
-}
-
-.logo.main {
-  background-image: url('../images/DPLogo.svg');
-}
-
-.logo.animation {
   height: 100%;
   width: 100%;
   overflow: hidden;
-
 }
 
-.logo.animation > video {
+#logoanim > video {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 125% !important;
+  width: 125%;
 }
 
 .namewrapper {
@@ -136,7 +162,7 @@ header > * {
 
 .name {
   width: 11ch;
-  animation: typing 2s steps(11), blink .5s step-end infinite alternate;
+  animation: typing 2s steps(11), blink .5s 2s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   user-select: none;
@@ -163,7 +189,6 @@ nav {
 
   font-size: 14px;
   color:white;
-  user-select: none;
   text-shadow: 0 2px 2px #161616;
 
   filter: saturate(150%);

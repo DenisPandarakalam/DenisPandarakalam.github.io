@@ -24,7 +24,10 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(270, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 1000;
-    camera.position.y = -400;
+    camera.position.y = 400;
+
+    camera.fov = 110;
+    camera.updateProjectionMatrix();
 
     scene = new THREE.Scene();
 
@@ -38,7 +41,7 @@ function init() {
         program: function(context) {
 
             context.beginPath();
-            context.arc(0, 0, .6, 0, PI2, true);
+            context.arc(0, 0, .3, 0, PI2, true);
             context.fill();
 
         }
